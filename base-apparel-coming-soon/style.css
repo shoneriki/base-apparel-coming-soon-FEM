@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap');
+
+* {
+  box-sizing: border-box;
+  /* margin: 0;
+  padding: 0; */
+}
+
+  :root {
+    --font-family: 'Josefin Sans', sans-serif;
+    --ds-red: hsl(0, 36%, 70%);
+    --soft-red: hsl(0, 93%, 68%);
+    --dark-grayish-red: hsl(0, 6%, 24%);
+    --font-size: 16px;
+    --linear-gradient-1: 135deg,  hsl(0, 0%, 100%),  hsl(0, 100%, 98%);
+    --linear-gradient-2: 135deg,  hsl(0, 80%, 86%),  hsl(0, 74%, 74%);
+  }
+
+  body {
+    background-image: url("images/bg-pattern-desktop.svg");
+    font-family: var(--font-family);
+    margin: 0;
+  }
+
+  .container {
+    display: flex;
+    min-height: 100vh;
+  }
+
+  .left {
+    background-image: url("images/bg-pattern-desktop.svg");
+    background-size: cover;
+    background-position: center center;
+    padding: 0px 40px 40px;
+    width: 60%;
+  }
+
+  .inner-container {
+    max-width: 450px;
+    margin: auto;
+  }
+
+  .right {
+    width: 40%;
+  }
+
+  .bg-image {
+    background-image: url("images/hero-desktop.jpg");
+    background-size: cover;
+    background-position: center center;
+  }
+
+  .logo {
+    /* margin: 0;
+    padding: 60px 0 96px 0; */
+    margin: 60px 0;
+    width: 200px;
+  }
+
+  .bg-mobile {
+    display: none;
+  }
+
+  h1 {
+    color: var(--dark-grayish-red);
+    font-size: 60px;
+    line-height: 1.1;
+    letter-spacing: 16px;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    transform: translateX(-100%);
+    animation: comeinleft 0.5s ease forwards;
+  }
+
+  h1 span {
+    color: var(--ds-red);
+    font-weight: 200;
+  }
+
+  p {
+    color: var(--ds-red);
+    letter-spacing: 1px;
+    line-height: 24px;
+    margin: 40px 0 40px 0;
+    opacity:0 ;
+    transform: translateX(100%);
+    animation: comeinright 0.5s ease forwards;
+  }
+
+  form {
+    position: relative;
+    transform: translateX(-100%);
+    animation: comeinleft 0.5s ease forwards;
+  }
+
+  input {
+    background-color: transparent;
+    border: 1px solid var(--ds-red);
+    border-radius: 50px;
+    font-size: 16px;
+    padding: 15px 30px;
+    height: 55px;
+    width: 100%;
+  }
+
+  input:focus {
+    border-width: 2px;
+    box-shadow: 0px 0px 10px hsla(0, 36%, 70%, 0.5);
+    outline: none;
+  }
+
+  input::placeholder {
+    color: var(--ds-red);
+  }
+
+  form.error input {
+    border: 2px solid var(--soft-red);
+  }
+
+  button {
+    background-image: linear-gradient(var(--linear-gradient-2));
+    border: none;
+    border-radius: 50px;
+    box-shadow: 2px 5px 10px hsla(0, 36%, 70%, 0.5);
+    cursor: pointer;
+    padding: 15px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: opacity 0.2s ease;
+    height: 55px;
+    width: 100px;
+  }
+
+  button:hover {
+    opacity: 0.6;
+  }
+
+  .error-icon {
+    display: none;
+    position: absolute;
+    top: 15px;
+    right: 110px;
+  }
+
+  form.error .error-icon {
+    display: block;
+  }
+
+  small {
+    color: var(--soft-red);
+    display: none;
+    margin-top: 8px;
+    margin-left: 30px;
+  }
+
+  form.error small {
+    display: block;
+  }
+
+  .attribution { font-size: 11px; text-align: center; }
+  .attribution a { color: hsl(228, 45%, 44%); }
+
+
+  /* animations */
+
+  @keyframes comeinleft {
+    to {
+      transform: translateX(0);
+    }
+  }
+
+    @keyframes comeinright {
+    to {
+      opacity:1;
+      transform: translateX(0);
+    }
+  }
+
+
+@media screen and (max-width: 600px) {
+
+  .logo {
+    margin: 30px 0;
+    width: 120px;
+  }
+
+  .bg-mobile {
+    display: block;
+    margin-left: -40px;
+    margin-right: -40px;
+    width: calc(100% + 80px);
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 40px;
+  }
+
+  p {
+    text-align: center;
+  }
+
+  .left{
+    width: 100%;
+  }
+  .right {
+    display: none;
+  }
+}
+/* ### Gradients
+
+- Linear, 135deg, from hsl(0, 0%, 100%), to hsl(0, 100%, 98%)
+- Linear, 135deg, from hsl(0, 80%, 86%), to hsl(0, 74%, 74%) */
